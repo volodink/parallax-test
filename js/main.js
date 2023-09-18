@@ -20,11 +20,17 @@ function handleOrientation(e) {
     const beta = e.beta;
     const gamma = e.gamma;
 
+    document.getElementById('alpha').innerHTML = alpha;
+
     document.querySelectorAll('.layer').forEach(layer => {
         const speed = layer.getAttribute('data-speed');
         
-        const x = alpha*(window.innerWidth - e.pageX*speed) / 100;
-        const y = beta*(window.innerHeight - e.pageY*speed) / 100;
+        // const x = alpha*(window.innerWidth - e.pageX*speed) / 100;
+        // const y = beta*(window.innerHeight - e.pageY*speed) / 100;
+        const x = alpha;
+        const y = beta;
+
+        console.log(x, y);
 
         layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
     });
