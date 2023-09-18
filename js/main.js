@@ -15,24 +15,14 @@ function start() {
 }
 
 function handleOrientation(e) {
-    const absolute = e.absolute;
-    const alpha = e.alpha;
-    const beta = e.beta;
-    const gamma = e.gamma;
-
-    document.getElementById('alpha').innerHTML = alpha;
+    const x = Math.round(e.beta);
+    const y = Math.round(e.gamma);
+    const z = Math.round(e.alpha);
 
     document.querySelectorAll('.layer').forEach(layer => {
         const speed = layer.getAttribute('data-speed');
         
-        // const x = alpha*(window.innerWidth - e.pageX*speed) / 100;
-        // const y = beta*(window.innerHeight - e.pageY*speed) / 100;
-        const x = alpha;
-        const y = beta;
-
-        console.log(x, y);
-
-        layer.style.transform = `translateX(${x}px) translateY(${y}px)`;
+        layer.style.transform = `translateX(${x*speed}px) translateY(${y*speed}px)`;
     });
 }
   
